@@ -1,0 +1,25 @@
+{
+  "name": "monetize-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon",
+    "start": "nodemon ./dist/server.js",
+    "prod": "npm run build && npm run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.13.6",
+    "@types/pg": "^7.4.14",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.11",
+    "pg": "^7.10.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.16"
+  }
+}
