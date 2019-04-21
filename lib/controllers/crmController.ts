@@ -14,7 +14,9 @@ export class ContactController{
         newContact.firstName = req.query.firstName
         newContact.lastName = req.query.lastName
         getConnection().manager.save(newContact)
-        res.json(newContact)
+        // res.json(newContact)
+       	res.status(200).send(newContact)
+
     
         // newContact.save((err, contact) => {
         //     if(err){
