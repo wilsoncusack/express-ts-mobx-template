@@ -14,16 +14,7 @@ export class ContactSchema {
     @Column()
     lastName: string;
 
-    @Column()
-    email: number;
-
-    @Column()
-    company: number;
-
-    @Column()
-    phone: number;
-
-    @Column()
-    created_date: Date;
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
+    created_date: string;
 
 }

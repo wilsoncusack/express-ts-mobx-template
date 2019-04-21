@@ -1,11 +1,9 @@
 {
    "type": "postgres",
-   "host": "localhost",
-   "port": 5432,
-   "username": "hellouser",
-   "password": "hellouser",
-   "database": "hellodb",
+   "url": "postgres://ktvmrliemkjiek:d6abde2b224eb6efbe34c8b488ce9ca586e9cc99202070cac55d12bc2ecb4803@ec2-174-129-10-235.compute-1.amazonaws.com:5432/dbtb3e3ov3aroi",
+   "ssl": true,
    "synchronize": true,
+   "sslfactory": "sslfactory=org.postgresql.ssl.NonValidatingFactory",
    "logging": false,
    "entities": [
       "dist/entity/**/*.js"
@@ -17,7 +15,8 @@
       "dist/subscriber/**/*.js"
    ],
    "cli": {
-      "entitiesDir": "src/entity",
-      "migrationsDir": "src/migration",
-      "subscribersDir": "src/subscriber"
+      "entitiesDir": "lib/entity",
+      "migrationsDir": "lib/migration",
+      "subscribersDir": "lib/subscriber"
    }
+}

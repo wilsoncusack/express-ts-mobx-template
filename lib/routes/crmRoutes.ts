@@ -1,8 +1,12 @@
 // /lib/routes/crmRoutes.ts
 
 import {Request, Response} from "express";
+import { ContactController } from "../controllers/crmController";
 
-export class Routes {    
+
+export class Routes {   
+
+	public contactController: ContactController = new ContactController(); 
     
     public routes(app): void {   
         
@@ -23,12 +27,7 @@ export class Routes {
             })
         })        
         // POST endpoint
-        .post((req: Request, res: Response) => {   
-        // Create new contact         
-            res.status(200).send({
-                message: 'POST request successfulll!!!!'
-            })
-        })
+        .post(this.contactController.addNewContact);
 
         // Contact detail
         app.route('/contact/:contactId')
