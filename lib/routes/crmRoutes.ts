@@ -20,7 +20,7 @@ export class Routes {
         .get((req: Request, res: Response) => {
         // Get all contacts            
             res.status(200).send({
-                message: 'GET contact worked!'
+                message: 'GET contact worked'
             })
         })        
         // POST endpoint
@@ -49,7 +49,7 @@ export class Routes {
         })
         app.use(ex.static(path.join(__dirname, '../../client/build')))
         app.get('*', (req, res) => {
-          res.sendFile(path.join(__dirname + '../../client/build/index.html'))
+          res.sendFile(path.join(__dirname, '../../client/build/index.html'))
         })
     }
 }
