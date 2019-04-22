@@ -1,7 +1,9 @@
 // /lib/routes/crmRoutes.ts
 
-import {Request, Response} from "express";
+import {Request, Response } from "express";
 import { ContactController } from "../controllers/crmController";
+const path = require('path')
+const ex = require('express')
 
 
 export class Routes {   
@@ -10,12 +12,7 @@ export class Routes {
 
     
     public routes(app): void {   
-        app.route('/')
-        .get((req: Request, res: Response) => {            
-            res.status(200).send({
-                message: 'GET request worked'
-            })
-        })
+        
         
         // Contact 
         app.route('/contact') 
@@ -49,6 +46,10 @@ export class Routes {
             res.status(200).send({
                 message: 'DELETE request successfulll!!!!'
             })
+        })
+        app.use(ex.static(path.join(__dirname, '../../client/build')))
+        app.get('*', (req, res) => {
+          res.sendFile(path.join(__dirname + '../../client/build/index.html'))
         })
     }
 }
