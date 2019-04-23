@@ -18,11 +18,7 @@ class AppState {
       this.greeting = greeting
     }
 
-    handleSubmit() {
-      console.log("in handle")
-      console.log(this.greeting)
-      
-      
+    handleSubmit() {      
       fetch('/contact', {
         method: 'POST',
         headers: {
