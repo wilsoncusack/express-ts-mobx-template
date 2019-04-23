@@ -14,7 +14,8 @@ createConnection(<ConnectionOptions>{
     password: connectionOptions.password,
     database: connectionOptions.database,
     ssl: true,
-    entities: ["dist/entity/**/*.js"]
+    entities: ["dist/entity/**/*.js"],
+    synchronize: true,
 }).then(connection => {
 
 	const PORT = process.env.PORT || 3001

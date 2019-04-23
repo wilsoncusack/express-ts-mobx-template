@@ -19,7 +19,7 @@ class AppState {
     }
 
     handleSubmit() {      
-      fetch('/contact', {
+      fetch('/users', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
