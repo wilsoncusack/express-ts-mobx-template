@@ -3,3 +3,4 @@ Publishing this mainly for myself to use later. It's not documented or friendly 
 - Node + typescript + Express for server
 - PSQL + TypeORM for the databse
 - react-app + Mobx + Typescript for client 
+And it's ready to deploy to Heroku! 
