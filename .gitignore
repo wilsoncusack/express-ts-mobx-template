@@ -10,7 +10,9 @@ client/build
 /coverage
 
 
+
 # misc
+/lib/.DS_Store
 .DS_Store
 .env.sh
 

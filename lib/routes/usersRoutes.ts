@@ -1,5 +1,3 @@
-// /lib/routes/crmRoutes.ts
-
 import {Request, Response } from "express";
 import { ContactController } from "../controllers/usersController";
 const path = require('path')
