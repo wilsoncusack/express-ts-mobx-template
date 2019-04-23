@@ -4,3 +4,14 @@ nodemon.json
 dist
 client/node_modules
 client/build
+/node_modules
+
+# testing
+/coverage
+
+
+# misc
+.DS_Store
+.env.sh
+
+npm-debug.log*
