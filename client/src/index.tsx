@@ -5,16 +5,36 @@ import {observer} from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
 
 class AppState {
-    @observable timer = 0;
+    @observable greeting: string;
+    @observable id: number; 
 
     constructor() {
-        setInterval(() => {
-            this.timer += 1;
-        }, 1000);
+      this.greeting = "";
+      this.id = 0;
     }
 
-    resetTimer() {
-        this.timer = 0;
+
+    handleChange(greeting: string) {
+      this.greeting = greeting
+    }
+
+    handleSubmit() {
+      console.log("in handle")
+      console.log(this.greeting)
+      
+      
+      fetch('/contact', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: this.greeting,
+          lastName: 'last',
+        }),
+      }).then(response => response.json()).then(res => this.id = res.id)
+     
     }
 }
 
@@ -23,16 +43,27 @@ class TimerView extends React.Component<{appState: AppState}, {}> {
     render() {
         return (
             <div>
-                <button onClick={this.onReset}>
-                    Seconds passed: {this.props.appState.timer}
-                </button>
-                <DevTools />
+              <div>Enter your name: </div>
+              <input
+                id="name"
+                type="text"
+                value={this.props.appState.greeting}
+                onChange={this.updateGreeting}
+              />
+              <button onClick={this.handleClick} type="submit">Submit</button>
+              
+              <p><b>User ID in Database</b>: {this.props.appState.id == 0 ? "pending" :  this.props.appState.id}</p>
+              <DevTools />
             </div>
         );
      }
 
-     onReset = () => {
-         this.props.appState.resetTimer();
+     handleClick = () => {
+       this.props.appState.handleSubmit()
+     }
+
+     updateGreeting = (e: React.FormEvent<HTMLInputElement>) => {
+         this.props.appState.handleChange(e.currentTarget.value);
      }
 };
 
